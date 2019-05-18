@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: client-node-port
+spec:
+  type: NodePort
+  ports:
+    - port: 3050 # another port can access
+      targetPort: 3000
+      nodePort: 31515 # expose a container to outsode world, only for dev
+  selector:
+    component: web #both can specify
